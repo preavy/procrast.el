@@ -1,8 +1,9 @@
 (defun toggle-procrast ()
-  "Comment out or uncomment a list of blocked sites in your host file."
+  "Comment out or uncomment a list of blocked sites in your hosts file."
   (interactive)
   (find-file "c:/Windows/System32/drivers/etc/hosts")
   (save-excursion
+    (setq comment-start "#")
     (re-search-forward "procrast_start")
     (set-mark (point))
     (re-search-forward "procrast_end")
@@ -11,6 +12,3 @@
     (save-buffer)
     (kill-buffer)
 ))
-
-
-
